@@ -17,58 +17,51 @@ novoElemento.style.color = 'yellow';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imagens Aleatórias - BLACKPINK</title>
+    <title>Toninho DIVO</title>
     <style>
         body {
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            margin: 0;
             background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
-        .image {
-            position: absolute;
-            max-width: 150px; /* Tamanho máximo da imagem */
-            max-height: 150px; /* Tamanho máximo da imagem */
+        .name {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .date {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <script>
-        const images = [
-            'https://link-da-imagem-1.jpg', // Substitua com URLs das imagens da Lalisa
-            'https://link-da-imagem-2.jpg', // Substitua com URLs das imagens da Lalisa
-            'https://link-da-imagem-3.jpg', // Substitua com URLs das imagens da BLACKPINK
-            'https://link-da-imagem-4.jpg', // Substitua com URLs das imagens da BLACKPINK
-            // Adicione mais URLs conforme necessário
+        const names = [
+            { size: '30px', color: '#FF5733' },
+            { size: '40px', color: '#33FF57' },
+            { size: '50px', color: '#3357FF' },
+            { size: '25px', color: '#FF33A1' },
+            { size: '35px', color: '#FFDA33' },
+            { size: '45px', color: '#A133FF' },
         ];
 
-        function getRandomPosition() {
-            const x = Math.random() * (window.innerWidth - 150); // Ajuste conforme o tamanho máximo
-            const y = Math.random() * (window.innerHeight - 150); // Ajuste conforme o tamanho máximo
-            return { x, y };
-        }
+        const date = '20/09/2024';
 
-        function createImage() {
-            const img = document.createElement('img');
-            const position = getRandomPosition();
-            const randomIndex = Math.floor(Math.random() * images.length);
-            
-            img.src = images[randomIndex];
-            img.classList.add('image');
-            img.style.left = `${position.x}px`;
-            img.style.top = `${position.y}px`;
-            img.style.transform = 'translate(-50%, -50%)'; // Centraliza a imagem na posição
-            
-            document.body.appendChild(img);
-
-            // Remover a imagem após 5 segundos
-            setTimeout(() => {
-                img.remove();
-            }, 5000);
-        }
-
-        setInterval(createImage, 2000);
+        names.forEach(({ size, color }) => {
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'name';
+            nameDiv.style.fontSize = size;
+            nameDiv.style.color = color;
+            nameDiv.innerHTML = `Toninho DIVO<br><div class="date">${date}</div>`;
+            document.body.appendChild(nameDiv);
+        });
     </script>
 </body>
 </html>
